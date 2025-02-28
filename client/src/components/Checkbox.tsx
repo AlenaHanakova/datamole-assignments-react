@@ -20,10 +20,6 @@ const CheckboxStyled = styled(CheckboxPrimitive.Root)`
     &:hover {
         background-color: ${(props) => props.theme.colors.grass3};
     }
-
-    &:focus {
-        box-shadow: 0 2px 10px black;
-    }
 `;
 
 const CheckboxIndicator = styled(CheckboxPrimitive.Indicator)`

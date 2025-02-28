@@ -23,7 +23,7 @@ export const addTodo = async (label: string): Promise<Todo> => {
     return response.json();
 };
 
-//Update a todo - edit label or toggle done/undone
+//Update todo item - edit label or toggle done/undone
 export const updateTodo = async (id: number, updatedFields: Partial<Todo>): Promise<void> => {
     const response = await fetch(`${URL}/${id}`, {
         method: "PATCH",
@@ -39,4 +39,14 @@ export const deleteTodo = async (id: number): Promise<void> => {
     const response = await fetch(`${URL}/${id}`, { method: "DELETE" });
 
     if (!response.ok) throw new Error("Failed to delete todo");
+};
+
+//mark todo as done
+export const markTodoDone = async (id: number): Promise<void> => {
+    const response = await fetch(`http://localhost:3000/items/${id}/done`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+    });
+
+    if (!response.ok) throw new Error("Failed to mark todo as done");
 };

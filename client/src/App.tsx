@@ -25,7 +25,7 @@ export const App = () => {
         <ThemeProvider>
             <Container>
                 <Layout>
-                    <Header onItemAdd={handleAddItem}>To Do app</Header>
+                    <Header onItemAdd={handleAddItem}>TO-DOs</Header>
 
                     {loading && <span>Loading todos...</span>}
                     {error && <span style={{ color: "red" }}>{error}</span>}

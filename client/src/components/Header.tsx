@@ -4,18 +4,13 @@ import styled from "styled-components";
 import { Form } from "./form";
 import { Button } from "./Button";
 
-const StyledDiv = styled.header`
+const HeaderStyled = styled.header`
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 10px;
-    padding: 15px;
     width: 100%;
-
-    h1 {
-        margin: 0;
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
 `;
 
 const HeaderTop = styled.div`
@@ -23,7 +18,32 @@ const HeaderTop = styled.div`
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    padding: 10px;
+    height: 48px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
+
+const HeaderForm = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    padding: 10px 10px;
+`;
+
+const Title = styled.h1`
+    font-size: 1.75rem;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    letter-spacing: -0.5px;
+    color: #333;
+`;
+
+type HeaderProps = {
+    children: React.ReactNode;
+    onItemAdd: (label: string) => void;
+};
 
 export const Header = ({ children, onItemAdd }: HeaderProps) => {
     const [showForm, setShowForm] = useState(false);
@@ -35,14 +55,18 @@ export const Header = ({ children, onItemAdd }: HeaderProps) => {
     };
 
     return (
-        <StyledDiv>
+        <HeaderStyled>
             <HeaderTop>
-                <h1>{children}</h1>
-                <Button onClick={() => setShowForm(true)} variant="secondary">
+                <Title>{children}</Title>
+                <Button onClick={() => setShowForm(true)}>
                     <PlusIcon /> Add
                 </Button>
             </HeaderTop>
-            {showForm && <Form initialValue="" onSubmit={onSubmit} onCancel={() => setShowForm(false)} />}
-        </StyledDiv>
+            {showForm && (
+                <HeaderForm>
+                    <Form initialValue="" onSubmit={onSubmit} onCancel={() => setShowForm(false)} />
+                </HeaderForm>
+            )}
+        </HeaderStyled>
     );
 };

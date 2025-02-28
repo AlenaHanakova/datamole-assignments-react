@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchTodos, addTodo, updateTodo, deleteTodo } from "./TodoServices";
+import { fetchTodos, addTodo, updateTodo, deleteTodo, markTodoDone } from "./TodoServices";
 import { Todo } from "../types";
 
 export const useTodos = () => {
@@ -62,8 +62,21 @@ export const useTodos = () => {
     // Toggle item done/undone
     const handleToggleDone = async (id: number, isDone: boolean) => {
         try {
-            await updateTodo(id, { isDone });
-            setTodos((prev) => sortTodos(prev.map((todo) => (todo.id === id ? { ...todo, isDone } : todo))));
+            if (isDone) {
+                await markTodoDone(id);
+                setTodos((prev) =>
+                    sortTodos(
+                        prev.map((todo) => (todo.id === id ? { ...todo, isDone: true, finishedAt: Date.now() } : todo))
+                    )
+                );
+            } else {
+                await updateTodo(id, { isDone: false, finishedAt: null });
+                setTodos((prev) =>
+                    sortTodos(
+                        prev.map((todo) => (todo.id === id ? { ...todo, isDone: false, finishedAt: null } : todo))
+                    )
+                );
+            }
         } catch (error) {
             console.error("Error toggling todo:", error);
             setError("Error occurred when updating todo.");
