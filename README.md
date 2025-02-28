@@ -74,8 +74,11 @@ If I had more time, I would have focused more on:
 -   Adding **optimistic UI updates**
 -   Exploring **Storybook stories**
 
-Overall, I really enjoyed working on this project. Thank you Datamole! 😃🔥
+Overall, I really enjoyed working on this project. **Thank you Datamole!** 😃🔥
 
+*
+*
+*
 # Datamole's React / TypeScript Assignment
 
 Please, read following instructions and let us know if anything is not clear.
