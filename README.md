@@ -36,14 +36,14 @@ I really enjoyed this assignment! It allowed me to **revise and learn a lot** wh
 -   **Sorting Logic**
     -   I initially wanted to **sort completed todos by `finishedAt`**, but I respected the assignment and stuck to **sorting by `createdAt`**.
 
-### **UI & Styling**
+### 🎨 UI & Styling
 
--   **I got stuck in styling a lot**
-    -   I planned to **return to some features**, but styling took more time than expected.
--   **My Weakest Area**
-    -   Styling is something I **struggle with**, and I know it **could be improved**.
--   **Placeholder for Form Input**
-    -   I wanted to add a **placeholder** in the form but never got back to it.
+-   **Spent more time on styling than expected**
+    -   I planned to **return to some features**, but I ended up **getting stuck in styling details** instead.
+-   **Styling is my weakest area**
+    -   I find styling **challenging**, and I know there’s **room for improvement**.
+-   **Missed some planned UI tweaks**
+    -   I wanted to **add a placeholder** to the form for clarity and **cross out completed tasks**, but I didn’t get back to it.
 
 ### **Bugs & Fixes**
 
