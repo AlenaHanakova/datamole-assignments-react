@@ -46,6 +46,7 @@ export const useTodos = () => {
             setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, label: newLabel } : todo)));
         } catch (error) {
             console.error("Error updating todo:", error);
+            setError("Error occurred when updating todo.");
         }
     };
 
@@ -56,6 +57,7 @@ export const useTodos = () => {
             setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, isDone } : todo)));
         } catch (error) {
             console.error("Error toggling todo:", error);
+            setError("Error occurred when updating todo.");
         }
     };
 
@@ -66,6 +68,7 @@ export const useTodos = () => {
             setTodos((prev) => prev.filter((todo) => todo.id !== id));
         } catch (error) {
             console.error("Error deleting todo:", error);
+            setError("Error occurred when deleting todo.");
         }
     };
 
