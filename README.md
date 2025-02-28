@@ -1,3 +1,81 @@
+# **Assignment Report**
+
+## **⏳ Time Estimation vs. Reality**
+
+I estimated that implementing the features would take **2-3 hours**, and styling would take another **2-3 hours**.  
+I believe I spent approximately that amount of time on the features, **trying not to get sucked into styling too early**—sometimes unsuccessfully.  
+Ultimately, the remaining time was spent refining the styling.
+
+I really enjoyed this assignment! It allowed me to **revise and learn a lot** while also having fun.
+
+---
+
+## **🛠 Tools & Workflow**
+
+### **Tools I Used**
+
+-   **VS Code** (with various extensions)
+    -   React snippets
+    -   Prettier
+    -   Free version of GitHub Copilot
+-   **Google & ChatGPT** whenever I needed advice or quick clarifications
+
+---
+
+## **📌 Key Decisions & Observations**
+
+### **Feature Development**
+
+-   **Started with Features First**
+    -   I focused on **implementing the core features first** before fixing bugs, as I felt it would be easier to debug when I had actual data in the app.
+-   **API Requests**
+    -   I considered using **Axios**, but since this was a small project, I decided to stick with `fetch` to **avoid unnecessary dependencies**.
+-   **Handling ListItem ID**
+    -   I wanted to **add an ID directly to `ListItem`**, but since modifying provided components was restricted, I **wrapped it inside another component** instead.
+    -   **Naming this wrapper was the hardest part!** 😅
+-   **Sorting Logic**
+    -   I initially wanted to **sort completed todos by `finishedAt`**, but I respected the assignment and stuck to **sorting by `createdAt`**.
+
+### **UI & Styling**
+
+-   **I got stuck in styling a lot**
+    -   I planned to **return to some features**, but styling took more time than expected.
+-   **My Weakest Area**
+    -   Styling is something I **struggle with**, and I know it **could be improved**.
+-   **Placeholder for Form Input**
+    -   I wanted to add a **placeholder** in the form but never got back to it.
+
+### **Bugs & Fixes**
+
+-   **Fixed Bugs Along the Way**
+    -   Either I **fixed them naturally during development**, or I simply **didn’t encounter them**.
+-   **Optimistic UI**
+    -   I thought about implementing **optimistic UI updates** but decided **styling was a bigger priority**.
+
+### **Custom Endpoint (S1)**
+
+-   I had **never created a custom API endpoint before**, so I **relied on ChatGPT to guide me** through the process.
+-   This was a **great learning experience**—I now feel much more comfortable with custom endpoints! 🚀
+
+### **Stories**
+
+-   I **chose not to implement Storybook stories** as part of the assignment since I **haven’t worked with them before**.
+-   However, this is **definitely something I plan to explore in the future**.
+
+---
+
+## **💡 Final Thoughts**
+
+This assignment was a **great mix of challenge and fun**! 🎯  
+I learned a lot, especially in areas where I was less experienced, such as **custom endpoints and better styling approaches**.  
+If I had more time, I would have focused more on:
+
+-   Improving the **visual polish** of the UI
+-   Adding **optimistic UI updates**
+-   Exploring **Storybook stories**
+
+Overall, I really enjoyed working on this project. Thank you Datamole! 😃🔥
+
 # Datamole's React / TypeScript Assignment
 
 Please, read following instructions and let us know if anything is not clear.

@@ -3,6 +3,7 @@ export interface Todo {
     label: string;
     isDone: boolean;
     createdAt: number;
+    finsihsedAt?: number;
 }
 
 export type ListItemProps = {

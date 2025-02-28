@@ -44,7 +44,7 @@ export const useTodos = () => {
             setTodos((prev) => sortTodos([...prev, newTodo]));
         } catch (error) {
             console.error("Error adding todo item:", error);
-            setError("Failed to load todo items.");
+            setError("Failed to add todo item.");
         }
     };
 
