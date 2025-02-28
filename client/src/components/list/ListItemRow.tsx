@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ListItem } from "./ListItem";
-import { Form } from "./form/Form";
-import { ListItemRowProps } from "../types";
+import { Form } from "../form/Form";
+import { ListItemRowProps } from "../../types";
 
 export const ListItemRow = (props: ListItemRowProps) => {
     const { id, label, isDone = false, onItemLabelEdit, onItemDoneToggle, onItemDelete } = props;

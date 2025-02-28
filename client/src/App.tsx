@@ -1,12 +1,12 @@
 import { Container } from "./components/Container";
 import { Layout } from "./components/Layout";
-import { List } from "./components/List";
+import { List } from "./components/list/List";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
-import { useTodos } from "./components/hooks/useTodos";
-import { ListItem } from "./components/ListItem";
-import { ListItemRow } from "./components/ListItemRow";
+import { useTodos } from "./services/useTodos";
+import { ListItem } from "./components/list/ListItem";
+import { ListItemRow } from "./components/list/ListItemRow";
 
 export const App = () => {
     const {

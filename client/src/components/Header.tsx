@@ -2,32 +2,30 @@ import { PlusIcon } from "@radix-ui/react-icons";
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Form } from "./form";
+import { Button } from "./Button";
 
 const StyledDiv = styled.header`
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    width: 100%;
 
-    button {
-        all: unset;
-
-        width: 25px;
-        height: 25px;
-
-        background-color: ${(props) => props.theme.colors.grass9};
-        border: 1px solid;
-        border-color: ${(props) => props.theme.colors.olive9};
-        border-radius: 50%;
-
-        color: #fff;
+    h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-weight: bold;
     }
 `;
 
-type HeaderProps = {
-    children: React.ReactNode;
-    onItemAdd: (label: string) => void;
-};
+const HeaderTop = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+`;
 
-export const Header = (props: HeaderProps) => {
-    const { children, onItemAdd } = props;
+export const Header = ({ children, onItemAdd }: HeaderProps) => {
     const [showForm, setShowForm] = useState(false);
 
     const onSubmit = (value: string) => {
@@ -38,23 +36,13 @@ export const Header = (props: HeaderProps) => {
 
     return (
         <StyledDiv>
-            <h1>{children}</h1>
-            <button
-                onClick={() => {
-                    setShowForm(true);
-                }}
-            >
-                <PlusIcon />
-            </button>
-            {showForm && (
-                <Form
-                    initialValue={""}
-                    onSubmit={onSubmit}
-                    onCancel={() => {
-                        setShowForm(false);
-                    }}
-                />
-            )}
+            <HeaderTop>
+                <h1>{children}</h1>
+                <Button onClick={() => setShowForm(true)} variant="secondary">
+                    <PlusIcon /> Add
+                </Button>
+            </HeaderTop>
+            {showForm && <Form initialValue="" onSubmit={onSubmit} onCancel={() => setShowForm(false)} />}
         </StyledDiv>
     );
 };

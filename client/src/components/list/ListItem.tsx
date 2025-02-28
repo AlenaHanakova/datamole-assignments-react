@@ -2,7 +2,9 @@ import { Pencil1Icon, TrashIcon } from "@radix-ui/react-icons";
 import React from "react";
 import styled from "styled-components";
 
-import { Checkbox } from "./Checkbox";
+import { Checkbox } from "../Checkbox";
+import { ListItemProps } from "../../types";
+import { Button } from "../Button";
 
 const StyledDiv = styled.div`
     display: flex;
@@ -14,27 +16,19 @@ const Label = styled.label`
     margin: 0 15px;
 `;
 
-export type ListItemProp = {
-    label: string;
-    isDone: boolean;
-    onItemLabelEdit: (label: string) => void;
-    onItemDoneToggle: (isDone: boolean) => void;
-    onItemDelete: () => void;
-};
-
-export const ListItem = (props: ListItemProp) => {
+export const ListItem = (props: ListItemProps) => {
     const { label, isDone, onItemLabelEdit, onItemDoneToggle, onItemDelete } = props;
 
     return (
         <StyledDiv>
             <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
             <Label>{label}</Label>
-            <button onClick={() => onItemDelete()}>
+            <Button onClick={() => onItemDelete()} variant="danger">
                 <TrashIcon />
-            </button>
-            <button onClick={() => onItemLabelEdit(label)}>
+            </Button>
+            <Button onClick={() => onItemLabelEdit(label)}>
                 <Pencil1Icon />
-            </button>
+            </Button>
         </StyledDiv>
     );
 };

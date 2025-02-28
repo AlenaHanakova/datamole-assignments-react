@@ -1,8 +1,8 @@
 import { action } from "@storybook/addon-actions";
 import { Meta, StoryObj } from "@storybook/react";
 
-import { List } from "../List";
-import { ListItem, LiteeItemProp } from "../ListItem";
+import { List } from "../list/List";
+import { ListItem, LiteeItemProp } from "../list/ListItem";
 
 const meta = {
     title: "List",
