@@ -9,7 +9,17 @@ import { ListItem } from "./components/ListItem";
 import { ListItemRow } from "./components/ListItemRow";
 
 export const App = () => {
-    const { todos, loading, error, handleAddItem, handleEditItem, handleToggleDone, handleDeleteItem } = useTodos();
+    const {
+        todos,
+        loading,
+        error,
+        todoCount,
+        doneCount,
+        handleAddItem,
+        handleEditItem,
+        handleToggleDone,
+        handleDeleteItem,
+    } = useTodos();
 
     return (
         <ThemeProvider>
@@ -34,7 +44,7 @@ export const App = () => {
                             </li>
                         ))}
                     </List>
-                    <Footer />
+                    <Footer todoItems={todoCount} doneItems={doneCount} />
                 </Layout>
             </Container>
         </ThemeProvider>

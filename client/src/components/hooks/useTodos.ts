@@ -81,9 +81,16 @@ export const useTodos = () => {
         }
     };
 
+    //counts for the footer
+    const todoCount = todos.filter((todo) => !todo.isDone).length;
+    const doneCount = todos.filter((todo) => todo.isDone).length;
+
     return {
         todos,
         loading,
+        todoCount,
+        doneCount,
+        error,
         handleAddItem,
         handleEditItem,
         handleToggleDone,
