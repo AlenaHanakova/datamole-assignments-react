@@ -7,12 +7,21 @@ export const useTodos = () => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
+    const sortTodos = (todos: Todo[]) => {
+        return [...todos].sort((a, b) => {
+            if (a.isDone === b.isDone) {
+                return b.createdAt - a.createdAt; // newest first
+            }
+            return a.isDone ? 1 : -1; // to-do first, done last
+        });
+    };
+
     //Load todos on initial mount
     useEffect(() => {
         const loadTodos = async () => {
             try {
                 const data = await fetchTodos();
-                setTodos(data);
+                setTodos(sortTodos(data));
             } catch (err) {
                 console.error("Error fetching todo items:", err);
                 setError("Failed to load todo items.");
@@ -32,7 +41,7 @@ export const useTodos = () => {
         }
         try {
             const newTodo = await addTodo(label);
-            setTodos((prev) => [...prev, newTodo]);
+            setTodos((prev) => sortTodos([...prev, newTodo]));
         } catch (error) {
             console.error("Error adding todo item:", error);
             setError("Failed to load todo items.");
@@ -43,7 +52,7 @@ export const useTodos = () => {
     const handleEditItem = async (id: number, newLabel: string) => {
         try {
             await updateTodo(id, { label: newLabel });
-            setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, label: newLabel } : todo)));
+            setTodos((prev) => sortTodos(prev.map((todo) => (todo.id === id ? { ...todo, label: newLabel } : todo))));
         } catch (error) {
             console.error("Error updating todo:", error);
             setError("Error occurred when updating todo.");
@@ -54,7 +63,7 @@ export const useTodos = () => {
     const handleToggleDone = async (id: number, isDone: boolean) => {
         try {
             await updateTodo(id, { isDone });
-            setTodos((prev) => prev.map((todo) => (todo.id === id ? { ...todo, isDone } : todo)));
+            setTodos((prev) => sortTodos(prev.map((todo) => (todo.id === id ? { ...todo, isDone } : todo))));
         } catch (error) {
             console.error("Error toggling todo:", error);
             setError("Error occurred when updating todo.");
