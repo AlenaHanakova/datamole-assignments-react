@@ -36,7 +36,7 @@ I really enjoyed this assignment! It allowed me to **revise and learn a lot** wh
 -   **Sorting Logic**
     -   I initially wanted to **sort completed todos by `finishedAt`**, but I respected the assignment and stuck to **sorting by `createdAt`**.
 
-### 🎨 UI & Styling
+### **UI & Styling**
 
 -   **Spent more time on styling than expected**
     -   I planned to **return to some features**, but I ended up **getting stuck in styling details** instead.
