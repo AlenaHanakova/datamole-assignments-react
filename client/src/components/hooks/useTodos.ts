@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchTodos } from "../../services/TodoServices";
+import { addTodo, fetchTodos } from "../../services/TodoServices";
 import { Todo } from "../../types";
 
 export const useTodos = () => {
@@ -14,8 +14,8 @@ export const useTodos = () => {
                 const data = await fetchTodos();
                 setTodos(data);
             } catch (err) {
-                console.error("Error fetching todos:", err);
-                setError("Failed to load todos.");
+                console.error("Error fetching todo items:", err);
+                setError("Failed to load todo items.");
             } finally {
                 setLoading(false);
             }
@@ -24,5 +24,16 @@ export const useTodos = () => {
         loadTodos();
     }, []);
 
-    return { todos, loading, error };
+    // Add new todo
+    const handleAddItem = async (label: string) => {
+        try {
+            const newTodo = await addTodo(label);
+            setTodos((prev) => [...prev, newTodo]);
+        } catch (error) {
+            console.error("Error adding todo item:", error);
+            setError("Failed to load todo items.");
+        }
+    };
+
+    return { todos, loading, error, handleAddItem };
 };

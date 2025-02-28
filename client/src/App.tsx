@@ -8,13 +8,13 @@ import { useTodos } from "./components/hooks/useTodos";
 import { ListItem } from "./components/ListItem";
 
 export const App = () => {
-    const { todos, loading, error } = useTodos();
+    const { todos, loading, error, handleAddItem } = useTodos();
 
     return (
         <ThemeProvider>
             <Container>
                 <Layout>
-                    <Header onItemAdd={() => console.warn("unimplemented")}>To Do app</Header>
+                    <Header onItemAdd={handleAddItem}>To Do app</Header>
 
                     {loading && <span>Loading todos...</span>}
                     {error && <span style={{ color: "red" }}>{error}</span>}
