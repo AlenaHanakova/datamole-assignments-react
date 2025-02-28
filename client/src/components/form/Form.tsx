@@ -23,14 +23,16 @@ export const Form = (props: FormProps) => {
         <FormStyled
             onSubmit={(e) => {
                 e.preventDefault();
-                onSubmit(inputValue);
+                if (inputValue.trim()) {
+                    onSubmit(inputValue);
+                }
             }}
             onReset={() => {
                 onCancel();
             }}
         >
             <Input value={inputValue} onValueChange={(value) => setInputValue(value)} />
-            <button type={"submit"}>
+            <button type={"submit"} disabled={!inputValue.trim()}>
                 <CheckIcon />
             </button>
             <button type={"reset"}>

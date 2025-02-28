@@ -22,3 +22,21 @@ export const addTodo = async (label: string): Promise<Todo> => {
     if (!response.ok) throw new Error("Failed to add todo item");
     return response.json();
 };
+
+//Update a todo - edit label or toggle done/undone
+export const updateTodo = async (id: number, updatedFields: Partial<Todo>): Promise<void> => {
+    const response = await fetch(`${URL}/${id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updatedFields),
+    });
+
+    if (!response.ok) throw new Error("Failed to update todo item");
+};
+
+// Delete todo item
+export const deleteTodo = async (id: number): Promise<void> => {
+    const response = await fetch(`${URL}/${id}`, { method: "DELETE" });
+
+    if (!response.ok) throw new Error("Failed to delete todo");
+};

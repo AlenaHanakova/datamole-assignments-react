@@ -6,9 +6,10 @@ import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/providers/ThemeProvider";
 import { useTodos } from "./components/hooks/useTodos";
 import { ListItem } from "./components/ListItem";
+import { ListItemRow } from "./components/ListItemRow";
 
 export const App = () => {
-    const { todos, loading, error, handleAddItem } = useTodos();
+    const { todos, loading, error, handleAddItem, handleEditItem, handleToggleDone, handleDeleteItem } = useTodos();
 
     return (
         <ThemeProvider>
@@ -21,12 +22,14 @@ export const App = () => {
                     <List>
                         {todos.map((todo) => (
                             <li key={todo.id}>
-                                <ListItem
+                                <ListItemRow
+                                    key={todo.id}
+                                    id={todo.id}
                                     label={todo.label}
                                     isDone={todo.isDone}
-                                    onItemLabelEdit={() => console.warn("Edit not implemented")}
-                                    onItemDoneToggle={() => console.warn("Toggle not implemented")}
-                                    onItemDelete={() => console.warn("Delete not implemented")}
+                                    onItemLabelEdit={handleEditItem}
+                                    onItemDoneToggle={handleToggleDone}
+                                    onItemDelete={handleDeleteItem}
                                 />
                             </li>
                         ))}

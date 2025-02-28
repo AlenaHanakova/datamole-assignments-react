@@ -29,10 +29,10 @@ export const ListItem = (props: ListItemProp) => {
         <StyledDiv>
             <Checkbox checked={isDone} onCheckedChange={onItemDoneToggle} />
             <Label>{label}</Label>
-            <button>
+            <button onClick={() => onItemDelete()}>
                 <TrashIcon />
             </button>
-            <button onClick={() => onItemDelete()}>
+            <button onClick={() => onItemLabelEdit(label)}>
                 <Pencil1Icon />
             </button>
         </StyledDiv>
